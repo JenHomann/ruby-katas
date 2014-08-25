@@ -3,7 +3,7 @@ require 'pry'
 module Sum
   
   def self.add(numbers)
-    nums = numbers.split(', ')
+    nums = numbers.split(/\n/)
     sum = 0
     nums.each do |n|
       sum = sum + n.to_i
@@ -12,3 +12,5 @@ module Sum
   end
   
 end
+
+binding.pry

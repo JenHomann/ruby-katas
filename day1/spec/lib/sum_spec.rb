@@ -3,7 +3,7 @@ require "spec_helper"
 describe Sum do
     
   it "should return the sum of two numbers, input as a string" do
-    nums = "1, 2"
+    nums = "1\n2"
     expect(Sum.add(nums)).to eq(3)
   end
   
@@ -18,7 +18,7 @@ describe Sum do
   end
   
   it "should return the sum of any set of numbers, input as a string" do
-    num = "1, 5, 48, 356, 7, 3, 9, 11000, 2"
+    num = "1\n5\n48\n356\n7\n3\n9\n11000\n2"
     expect(Sum.add(num)).to eq(11431)
   end
 
