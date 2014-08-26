@@ -22,4 +22,9 @@ describe Sum do
     expect(Sum.add(num)).to eq(11431)
   end
 
+  it "should raise an error for a negative input" do
+    num = "-2"
+    expect{Sum.add(num)}.to raise_error(RuntimeError, "Negatives not allowed.")
+  end
+
 end
