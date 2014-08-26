@@ -26,5 +26,10 @@ describe Sum do
     num = "-2"
     expect{Sum.add(num)}.to raise_error(RuntimeError, "Negatives not allowed.")
   end
+  
+  it "should evaluate an input to see whether any of the numbers are negative" do
+    num = "-2"
+    expect(Sum.negative_input?(num)).to be true
+  end
 
 end
