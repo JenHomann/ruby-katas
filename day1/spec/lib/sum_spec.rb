@@ -18,8 +18,8 @@ describe Sum do
   end
   
   it "should return the sum of any set of numbers, input as a string" do
-    num = "1\n5\n48\n356\n7\n3\n9\n11000\n2"
-    expect(Sum.add(num)).to eq(11431)
+    num = "1\n5\n48\n356\n7\n3\n9\n2"
+    expect(Sum.add(num)).to eq(431)
   end
 
   it "should raise an error for a negative input" do
@@ -30,6 +30,16 @@ describe Sum do
   it "should evaluate an input to see whether any of the numbers are negative" do
     num = "-2"
     expect(Sum.negative_input?(num)).to be true
+  end
+  
+  it "should split an input into an array with each of the numbers in its own index" do
+    num = "-2\n3\n4"
+    expect(Sum.split_into_nums_array(num)).to eq(["-2", "3", "4"])
+  end
+  
+  it "should ignore any input greater than 1000 and add the rest of the input" do
+    num = "2\n1005\n4\n3560"
+    expect(Sum.add("2\n1005\n4\n3560")).to eq(6)
   end
 
 end

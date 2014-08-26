@@ -10,7 +10,11 @@ module Sum
       unless self.negative_input?(numbers) == false
         raise "Negatives not allowed."
       end
-      sum = sum + n.to_i
+      if n.to_i > 1000
+        next
+      else
+        sum = sum + n.to_i
+      end
     end
     
     sum
