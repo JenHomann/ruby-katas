@@ -33,6 +33,7 @@ module Sum
         odd_nums << n
       else
       end
+      odd_nums
     end
     
     if odd_nums == []
