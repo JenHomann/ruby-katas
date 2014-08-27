@@ -8,7 +8,7 @@ module GiftExchange
     ["Sumeet Jain", "Beth Haubert", "Sachin Jain", "Suneel Jain", "Prisha Gupta", "Richa Goyal", "Arjun Goyal", "Judy Haubert"]
   end
 
-  # Assign members to each other.
+  # Assign members to each other (the only real work this method does is loop until it receives valid pairs - otherwise it just calls other methods)
   #
   # members - Array containing member names.
   #
@@ -98,10 +98,10 @@ module GiftExchange
   def self.valid_pairs?(pairings)
     validated_pairings = []
     pairings.each do |p| #p is an array holding two strings (the matches)
-      match1 = /(\w*)\s(\w*)/.match(p[0]) # returns a MatchData object with the first name at match1[1] and last name at match1[2]
-      match2 = /(\w*)\s(\w*)/.match(p[1]) # returns a MatchData object with the first at match2[1] and last name at match2[2]
+      match1 = /(\w*)\s(\w*)|(\w*)\s(\w*)\s(\w*)/.match(p[0]).to_a # returns an Array of MatchData info with the last name at match1.last
+      match2 = /(\w*)\s(\w*)|(\w*)\s(\w*)\s(\w*)/.match(p[1]).to_a # returns an Array of MatchData info with the last name at match2.last
       
-      if match1[2] != match2[2]
+      if match1.last != match2.last
         validated_pairings << p
       else
       end
@@ -122,5 +122,3 @@ module GiftExchange
   end
   
 end
-
-binding.pry
