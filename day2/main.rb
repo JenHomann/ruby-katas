@@ -25,7 +25,7 @@ module GiftExchange
     end
     pairing_hash = self.array_to_hash(pairings)
     inverted_hash = self.invert_hash(pairing_hash)
-    final_pairings = self.merge_hashes(pairing_hash, inverted_hash)
+    self.merge_hashes(pairing_hash, inverted_hash)
   end
   
   # Randomize the list and separate into pairs
