@@ -82,8 +82,34 @@ module GiftExchange
     pairing_hash.merge(inverted_hash)
   end
   
-  #Only assign members to others with different last names
-  def self.verify_last_name
+  # Validates whether any of the pairs have matching last names
+  #
+  # pairings - an Array of matched pairs
+  #
+  # Examples
+  #
+  #   verify_last_name([[Sachin Jain", "Beth Haubert"], ["Prisha Gupta", "Sumeet Jain"] etc ...]
+  #   # => true
+  #
+  # Returns true if all of the given pairs have different last names
+  def self.valid_pairs?(pairings)
+    validated_pairings = []
+    pairings.each do |p| #p is an array holding two strings (the matches)
+      match1 = /(\w*)\s(\w*)/.match(p[0]) # returns a MatchData object with the first name at match1[1] and last name at match1[2]
+      match2 = /(\w*)\s(\w*)/.match(p[1]) # returns a MatchData object with the first at match2[1] and last name at match2[2]
+      
+      if match1[2] != match2[2]
+        validated_pairings << p
+      else
+      end
+    end
+      
+    if validated_pairings == pairings
+      true
+    else
+      false
+    end
+
   end
   
   #checks that everyone is assigned to another member
