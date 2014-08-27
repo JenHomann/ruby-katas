@@ -28,4 +28,9 @@ describe GiftExchange do
     expect(GiftExchange.merge_hashes(pairing_hash, inverted_hash)).to eq({"Sumeet Jain" => "Beth Haubert", "Beth Haubert" => "Sumeet Jain"})
   end
   
+  it "should validate whether any pair has matching last names" do
+    pairings = [["Sumeet Jain", "Beth Haubert"], ["Sachin Jain", "Suneel Jain"]]
+    expect(GiftExchange.valid_pairs?(pairings)).to eq(false)
+  end
+  
 end
