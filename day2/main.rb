@@ -20,6 +20,9 @@ module GiftExchange
   # Returns a Hash with each member's name as a key and the person to whom they should give a gift as the value
   def self.assign_gift_givers(members)
     pairings = self.split_into_pairs(members)
+    until self.valid_pairs(pairings) == true
+      pairings = self.split_into_pairs(members)
+    end
     pairing_hash = self.array_to_hash(pairings)
     inverted_hash = self.invert_hash(pairing_hash)
     final_pairings = self.merge_hashes(pairing_hash, inverted_hash)
